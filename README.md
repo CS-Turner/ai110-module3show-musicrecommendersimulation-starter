@@ -78,7 +78,9 @@ You can add more tests in `tests/test_recommender.py`.
 ## Sample Recommendation Output
 
 ```
+============================================================
 Profile: High-Energy Pop
+============================================================
 1. Sunrise City by Neon Echo
    Score: 9.76 / 10
    Because: genre match (+4.0); mood match (+3.0); energy closeness (+1.94); acousticness fit (+0.82)
@@ -141,4 +143,3 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 
 - about where bias or unfairness could show up in systems like this
-
