@@ -2,16 +2,7 @@
 
 ## Project Summary
 
-In this project you will build and explain a small music recommender system.
-
-Your goal is to:
-
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
-
-Replace this paragraph with your own summary of what your version does.
+This project builds a content-based music recommender for an 18-song catalog. It scores songs against a listener's genre, mood, energy, and acousticness preferences, then ranks the top five. The project tests several listener profiles and explores how changing feature weights affects recommendations.
 
 ---
 
@@ -50,18 +41,19 @@ Genre and mood together are worth 7 of 10 points, while energy—the feature tha
    python -m venv .venv
    source .venv/bin/activate      # Mac or Linux
    .venv\Scripts\activate         # Windows
+   ```
 
-2. Install dependencies
+2. Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 3. Run the app:
 
-```bash
-python -m src.main
-```
+   ```bash
+   python -m src.main
+   ```
 
 ### Running Tests
 
@@ -108,38 +100,22 @@ Profile: High-Energy Pop
 
 ## Experiments You Tried
 
-I ran the recommender with three other profiles:
+I tested the recommender with several profiles. Chill Lofi ranked “Library Rain” first (9.80/10), while Deep Intense Rock ranked “Storm Runner” first (9.88/10). The Conflicted profile ranked the folk song “Pine Smoke Letters” first (5.73/10), even though it wanted a sad, high-energy, acoustic song.
 
-- **Chill Lofi:** Library Rain ranked first (9.80/10), followed by Midnight Coding (9.63/10).
-- **Deep Intense Rock:** Storm Runner ranked first (9.88/10), followed by Gym Hero (5.93/10).
-- **Conflicted (edge case):** Pine Smoke Letters ranked first (5.73/10). It matched the folk genre and acoustic preference, but not the requested sad mood and was much lower energy than the 0.90 target.
+I also halved the genre weight and doubled the energy weight. Pop's “Rooftop Lights” moved from third to second, and “Concrete Crown” entered the top five; Lofi's “Spacewalk Thoughts” moved from fourth to third. Rock's top-five order stayed the same. The change did not fix the Conflicted profile's acousticness mismatch.
 
-- Phase 4 experiment to try: halve the genre weight (from 4 to 2) and double the energy weight (from 2 to 4), then compare how the recommendations change.
+In stress tests, “Pop” still matched “pop” after case-insensitive comparison. A genre missing from the catalog earned no genre points, and the recommender did not warn that it was missing. “Winter Hall Etude” ranked first for the maximum-energy profile because its genre and mood matches outweighed its low energy.
 
 ---
 
 ## Limitations and Risks
 
-Summarize some limitations of your recommender.
-
-Examples:
-
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
-
-You will go deeper on this in your model card.
+The catalog is small and uneven, with only 18 songs and most genres represented once. Genre and mood account for 7 of 10 points, so label matches can outweigh a mismatch in sound; acousticness contributes only 1 point. The recommender ignores tempo, valence, danceability, lyrics, listening history, and context, and it has no variety step to encourage discovery beyond the highest-scoring matches.
 
 ---
 
 ## Reflection
 
-Read and complete `model_card.md`:
+I learned that a recommender's results depend on the features and weights chosen by its designer. A strong genre or mood match can outweigh a mismatch in sound, as the Extreme Energy test showed. Testing different profiles and weights helped me see how these choices can narrow recommendations or favor some preferences over others.
 
-[**Model Card**](model_card.md)
-
-Write 1 to 2 paragraphs here about what you learned:
-
-- about how recommenders turn data into predictions
-
-- about where bias or unfairness could show up in systems like this
+See the [**Model Card**](model_card.md) for the full evaluation and limitations.
