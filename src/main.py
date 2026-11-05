@@ -32,6 +32,24 @@ def main() -> None:
             "target_energy": 0.90,
             "likes_acoustic": True,
         },
+        "Genre Not in Catalog": {
+            "favorite_genre": "bossa nova",
+            "favorite_mood": "chill",
+            "target_energy": 0.40,
+            "likes_acoustic": True,
+        },
+        "Capitalized Genre": {
+            "favorite_genre": "Pop",
+            "favorite_mood": "happy",
+            "target_energy": 0.85,
+            "likes_acoustic": False,
+        },
+        "Extreme Energy": {
+            "favorite_genre": "classical",
+            "favorite_mood": "melancholy",
+            "target_energy": 1.00,
+            "likes_acoustic": False,
+        },
     }
 
     for name, user_prefs in profiles.items():
