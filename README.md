@@ -22,8 +22,8 @@ Explain your design in plain language.
 Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or tempo) that are similar to songs a user already likes. Real platforms typically combine both and incorporate user signals such as likes, skips, and replays. Mine will be content-based only, since there is no user behavior data to work with.
 
 ### Features Used
-**Song features:** genre, mood, energy
-**UserProfile preferences:** favorite_genre, favorite_mood, target_energy
+**Song features:** genre, mood, energy, acousticness
+**UserProfile preferences:** favorite_genre, favorite_mood, target_energy, likes_acoustic
 **Not used for scoring:** id, title, artist (identifiers only)
 
 ### Algorithm Recipe
@@ -36,7 +36,7 @@ Each song gets a score out of 10.0:
 Scoring judges one song. Ranking scores every song, sorts highest to lowest, and returns the top k with reasons.
 
 ### Expected Biases
-Genre and mood together are worth 7 of 10 points, while energy—the feature that describes how a song sounds—gets only 2. A song with the right genre and mood labels but very different energy can still rank high. Genre is weighted 4 points to mood's 3, rather than the project's suggested 2:1 starting ratio; I weighted mood close to genre because mood reflects what the listener wants right now. Lofi has 3 of 10 songs, so lofi fans get more variety than jazz fans. Exact matches for mood and genre give no credit to near matches, such as "chill" and "relaxed".
+Genre and mood together are worth 7 of 10 points, while energy—the feature that describes how a song sounds—gets only 2. A song with the right genre and mood labels but very different energy can still rank high. Genre is weighted 4 points to mood's 3, rather than the project's suggested 2:1 starting ratio; I weighted mood close to genre because mood reflects what the listener wants right now. Lofi has 3 of 18 songs, so lofi fans get more variety than jazz fans. Exact matches for mood and genre give no credit to near matches, such as "chill" and "relaxed".
 
 ---
 
