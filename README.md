@@ -77,15 +77,27 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Sample Recommendation Output
 
-Paste a sample of your recommender's output here as a text block so a reader can see what it produces:
-
 ```
-# e.g.:
-# User profile: genre=indie, mood=chill, energy=low
-# Recommendations:
-#   1. ...
-#   2. ...
-#   3. ...
+Profile: High-Energy Pop
+1. Sunrise City by Neon Echo
+   Score: 9.76 / 10
+   Because: genre match (+4.0); mood match (+3.0); energy closeness (+1.94); acousticness fit (+0.82)
+
+2. Gym Hero by Max Pulse
+   Score: 6.79 / 10
+   Because: genre match (+4.0); energy closeness (+1.84); acousticness fit (+0.95)
+
+3. Rooftop Lights by Indigo Parade
+   Score: 5.47 / 10
+   Because: mood match (+3.0); energy closeness (+1.82); acousticness fit (+0.65)
+
+4. Storm Runner by Voltline
+   Score: 2.78 / 10
+   Because: energy closeness (+1.88); acousticness fit (+0.90)
+
+5. Pulse Garden by Kaleo Wave
+   Score: 2.76 / 10
+   Because: energy closeness (+1.80); acousticness fit (+0.96)
 ```
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
@@ -94,11 +106,12 @@ Paste a sample of your recommender's output here as a text block so a reader can
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
+I ran the recommender with three other profiles:
 
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
+- **Chill Lofi:** Library Rain ranked first (9.80/10), followed by Midnight Coding (9.63/10).
+- **Deep Intense Rock:** Storm Runner ranked first (9.88/10), followed by Gym Hero (5.93/10).
+- **Conflicted (edge case):** Pine Smoke Letters ranked first (5.73/10). It matched the folk genre and acoustic preference, but not the requested sad mood and was much lower energy than the 0.90 target.
+
 - Phase 4 experiment to try: halve the genre weight (from 4 to 2) and double the energy weight (from 2 to 4), then compare how the recommendations change.
 
 ---
@@ -128,5 +141,4 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 
 - about where bias or unfairness could show up in systems like this
-
 
