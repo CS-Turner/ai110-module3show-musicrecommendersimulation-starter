@@ -19,7 +19,13 @@ Replace this paragraph with your own summary of what your version does.
 
 Explain your design in plain language.
 
-Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or tempo) that are similar to songs a user already likes.
+Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or tempo) that are similar to songs a user already likes. Real platforms typically combine both and incorporate user signals such as likes, skips, and replays. Mine will be content-based only, since there is no user behavior data to work with.
+
+### Features Used
+(to be filled in after choosing features)
+
+### Algorithm Recipe
+(to be filled in after designing the scoring rule)
 
 Some prompts to answer:
 
@@ -118,6 +124,7 @@ Read and complete `model_card.md`:
 Write 1 to 2 paragraphs here about what you learned:
 
 - about how recommenders turn data into predictions
+
 - about where bias or unfairness could show up in systems like this
 
 
