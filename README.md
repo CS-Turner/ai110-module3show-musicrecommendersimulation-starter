@@ -19,6 +19,8 @@ Replace this paragraph with your own summary of what your version does.
 
 Explain your design in plain language.
 
+Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or tempo) that are similar to songs a user already likes.
+
 Some prompts to answer:
 
 - What features does each `Song` use in your system
@@ -117,6 +119,5 @@ Write 1 to 2 paragraphs here about what you learned:
 
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
-
 
 
