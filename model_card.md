@@ -44,7 +44,7 @@ Testing exposed a specific weakness: the Conflicted profile says it likes acoust
 
 ## 7. Evaluation  
 
-I ran the recommender for High-Energy Pop, Chill Lofi, Deep Intense Rock, and Conflicted profiles. I checked whether the rankings matched each profile and inspected the score explanations.
+I ran the recommender for seven profiles. I checked whether the rankings matched each profile and inspected the score explanations.
 
 **Pair comparisons**
 
@@ -57,7 +57,7 @@ I ran the recommender for High-Energy Pop, Chill Lofi, Deep Intense Rock, and Co
 
 “Gym Hero” ranked second for both Pop and Rock for different reasons. For Pop, it earns 4 genre points as a pop song, even though its intense mood does not match happy. Its high energy helps keep it near the top. For Rock, its intense mood earns 3 points, and its high energy also suits that profile.
 
-The adversarial profiles revealed more surprises. “Winter Hall Etude” ranked first for Extreme Energy (7.39) even though its energy is only 0.18 and its acousticness is 0.97; its classical genre and melancholy mood earned 7 points. With “Pop” capitalized, Sunrise City lost its exact genre match and fell from 9.76 to 5.76. For Genre Not in Catalog, no song earned genre points; three chill songs filled the top three (5.76, 5.68, and 5.67), and the recommender did not indicate that the requested genre was missing.
+The adversarial profiles revealed more surprises. “Winter Hall Etude” ranked first for Extreme Energy (7.39) even though its energy is only 0.18 and its acousticness is 0.97; its classical genre and melancholy mood earned 7 points. Before I fixed it, typing “Pop” instead of “pop” made Sunrise City lose its genre match and fall from 9.76 to 5.76. I made the comparison case-insensitive, and “Pop” now gives the same results as “pop”. For Genre Not in Catalog, no song earned genre points; three chill songs filled the top three (5.76, 5.68, and 5.67), and the recommender did not indicate that the requested genre was missing.
 
 I also tried halving the genre weight from 4 to 2 and doubling the energy weight from 2 to 4, keeping the maximum score at 10. The results changed, but were not clearly better: Pop's “Rooftop Lights” moved from third to second, and “Concrete Crown” entered the top five. Lofi's “Spacewalk Thoughts” moved from fourth to third. Rock kept the same top-five order, while Conflicted replaced “Rooftop Lights” with “Pulse Garden.” “Pine Smoke Letters” stayed first for Conflicted, but its score fell from 5.73 to 4.53. The higher energy weight did not fix the Conflicted profile's acousticness mismatch.
 
@@ -185,16 +185,16 @@ Profile: Genre Not in Catalog
 Profile: Capitalized Genre
 ============================================================
 1. Sunrise City by Neon Echo
-   Score: 5.76 / 10
-   Because: mood match (+3.0); energy closeness (+1.94); acousticness fit (+0.82)
+   Score: 9.76 / 10
+   Because: genre match (+4.0); mood match (+3.0); energy closeness (+1.94); acousticness fit (+0.82)
 
-2. Rooftop Lights by Indigo Parade
+2. Gym Hero by Max Pulse
+   Score: 6.79 / 10
+   Because: genre match (+4.0); energy closeness (+1.84); acousticness fit (+0.95)
+
+3. Rooftop Lights by Indigo Parade
    Score: 5.47 / 10
    Because: mood match (+3.0); energy closeness (+1.82); acousticness fit (+0.65)
-
-3. Gym Hero by Max Pulse
-   Score: 2.79 / 10
-   Because: energy closeness (+1.84); acousticness fit (+0.95)
 
 4. Storm Runner by Voltline
    Score: 2.78 / 10

@@ -8,12 +8,13 @@ This project builds a content-based music recommender for an 18-song catalog. It
 
 ## How The System Works
 
-Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or tempo) that are similar to songs a user already likes. Real platforms typically combine both and incorporate user signals such as likes, skips, and replays. Mine will be content-based only, since there is no user behavior data to work with.
+Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or energy) that are similar to songs a user already likes. Real platforms typically combine both and incorporate user signals such as likes, skips, and replays. Mine will be content-based only, since there is no user behavior data to work with.
 
 ### Features Used
-**Song features:** genre, mood, energy, acousticness
-**UserProfile preferences:** favorite_genre, favorite_mood, target_energy, likes_acoustic
-**Not used for scoring:** id, title, artist (identifiers only)
+
+- **Song features:** genre, mood, energy, acousticness
+- **UserProfile preferences:** favorite_genre, favorite_mood, target_energy, likes_acoustic
+- **Not used for scoring:** id, title, artist (identifiers only)
 
 ### Algorithm Recipe
 Each song gets a score out of 10.0:
@@ -58,7 +59,7 @@ Genre and mood together are worth 7 of 10 points, while energy—the feature tha
 Run the starter tests with:
 
 ```bash
-pytest
+python -m pytest
 ```
 
 You can add more tests in `tests/test_recommender.py`.
@@ -115,5 +116,7 @@ The catalog is small and uneven, with only 18 songs and most genres represented 
 ## Reflection
 
 I learned that a recommender's results depend on the features and weights chosen by its designer. A strong genre or mood match can outweigh a mismatch in sound, as the Extreme Energy test showed. Testing different profiles and weights helped me see how these choices can narrow recommendations or favor some preferences over others.
+
+In real apps, a small or uneven catalog and heavily weighted labels can keep some listeners' tastes from being served well.
 
 See the [**Model Card**](model_card.md) for the full evaluation and limitations.
