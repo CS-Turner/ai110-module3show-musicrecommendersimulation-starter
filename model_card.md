@@ -23,6 +23,10 @@ Prompts:
 
 Explain your scoring approach in simple language.  
 
+### Algorithm Summary
+
+A song earns 4 points for matching the user's favorite genre and 3 points for matching their favorite mood. It can earn up to 2 points for having energy close to the user's target and up to 1 point for matching their acousticness preference. The points are added into a score out of 10, and songs are ranked from highest score to lowest. The recommender returns the top-ranked songs with brief reasons for their scores.
+
 Prompts:  
 
 - What features of each song are used (genre, energy, mood, etc.)  
