@@ -8,8 +8,6 @@ This project builds a content-based music recommender for an 18-song catalog. It
 
 ## How The System Works
 
-Explain your design in plain language.
-
 Collaborative filtering recommends songs based on patterns in what listeners with similar tastes enjoy. Content-based filtering recommends songs with attributes (genre, mood, or tempo) that are similar to songs a user already likes. Real platforms typically combine both and incorporate user signals such as likes, skips, and replays. Mine will be content-based only, since there is no user behavior data to work with.
 
 ### Features Used
